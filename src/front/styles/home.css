@@ -5,3 +5,11 @@
     one more css for each page that will contain the selected used 
     on that page only (the ones not reused in other pages).
 */
+.black {
+    background-color: black;
+  }
+.dropdown-menu {
+    list-style-type: disc;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }

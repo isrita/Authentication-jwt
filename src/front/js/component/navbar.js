@@ -1,43 +1,77 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+/* import "./styles/home.css" */ export const Navbar = () => {
+  //<a href="./demo.html">
+  const { store, actions } = useContext(Context);
+  const handleDelete = (item) => {
+    const newFavoritos = favoritos.filter((f) => f.name !== item.name);
+    setFavoritos(newFavoritos);
+  };
 
-export const Navbar = () => {
-	//<a href="./demo.html">
-	const { store, actions } = useContext(Context)
-	return (
-		<nav className="navbar navbar-light bg-light">
-			<div className="container">
-				<Link to="/">
-					<span className="navbar-brand mb-0 h1">React Boilerplate</span>
-				</Link>
-				<div className="ml-auto">
-					<Link to="/demo">
-						<button className="btn btn-primary">Check the Context in action</button>
-					</Link>
-				</div>
-				<div>
-					<div className="nav-item dropdown">
-						<div className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							Favoritos
-						</div>
-						<ul className="dropdown-menu list-unstyled" aria-labelledby="navbarDropdown">
-							{store.favoritos && store.favoritos.length > 0 ? <>
-								{store.favoritos.map((item, index) => {
-									return <Link key={index} to={item.link}>
-										{item.name}
-									</Link>
-								})}
-							</> : <></>}
-
-						</ul>
-					</div>
-				</div>
-			</div>
-		</nav>
-	);
+  return (
+    <nav className="navbar navbar-light black">
+      <div className="container">
+        <Link to="/">
+          <span
+            style={{
+              fontFamily: "Star Jedi, sans-serif",
+              fontSize: "3em",
+              color: "#ffd600",
+              textDecoration: "none",
+              letterSpacing: "0.2em",
+              fontWeight: "bold",
+              letterSpacing: "-0.1em",
+              textTransform: "uppercase",
+            }}
+          >
+            STAR WARS
+          </span>
+        </Link>
+        <div className="ml-auto"></div>
+        <div>
+          <div className="nav-item dropdown">
+            <div
+              className="nav-link dropdown-toggle"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              style={{ color: "white", fontSize: "1.2em" }}
+            >
+              Favoritos
+            </div>
+            <ul className=" dropdown-menu ">
+              {store.favoritos && store.favoritos.length > 0 ? (
+                <>
+                  {store.favoritos.map((item, index) => {
+                    const handleDelete = () => {
+                      const newFavoritos = [...store.favoritos];
+                      newFavoritos.splice(index, 1);
+                      setStore({ ...store, favoritos: newFavoritos });
+                    };
+                    return (
+						<ul key={index}>
+						<Link to={item.link} style={{ color: "black", fontSize: "1.2em", }}>
+						  {item.name}
+						</Link>
+						<button onClick={() => onDelete(item)}>X 
+						
+						</button>
+					  </ul>
+                    );
+                  })}
+                </>
+              ) : (
+                <></>
+              )}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
 };
-
 
 /*
 

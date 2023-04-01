@@ -7,6 +7,7 @@ import { ToDo } from "./pages/todos.jsx";
 
 import StarWars from "./pages/starWars.jsx";
 import SinglePeople from "./pages/singlePeople.jsx";
+import SinglePlanet from "./pages/singlePlanet.jsx";
 
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
@@ -35,6 +36,7 @@ const Layout = () => {
                         <Route element={<Single />} path="/single/:thetitle" />
                         <Route element={<SinglePeople />} path="/people/:uid" />
                         <Route element={<h1>Not found! 404</h1>} path="*" />
+                        <Route element={<SinglePlanet />} path="/planet/:uid" />
                     </Routes>
                     <Footer />
                 </ScrollToTop>

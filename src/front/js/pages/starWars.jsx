@@ -74,33 +74,32 @@ const StarWars = () => {
     useEffect(() => { }, [listVehicles])
 
     return (<>
-        Soy el componente de Star wars
+       
 
-
-        <div>
-            <ul>
+        <div className = "container">
+        <div className="row flex-row flex-nowrap overflow-auto">
                 {listPeople && listPeople.length > 0 ?
                     <>
                         {listPeople.map((item, index) => {
-                            return <li key={item.uid}>
+                            return <div key={item.uid} className = "col-3">
                                 <CardPeople name={item.name} uid={item.uid} />
-                            </li>
+                            </div>
                         })}
                     </> : <></>}
-            </ul>
+            </div>
         </div>
         <br />
-        <div>
-            <ul>
+        <div className = "container">
+        <div className="row flex-row flex-nowrap overflow-auto">
                 {listPlanets && listPlanets.length > 0 ?
                     <>
                         {listPlanets.map((item, index) => {
-                            return <li key={item.uid}>
+                            return <li key={item.uid} className = "col-3">
                                 <CardPlanet name={item.name} uid={item.uid} />
                             </li>
                         })}
                     </> : <></>}
-            </ul>
+            </div>
         </div>
 
 
