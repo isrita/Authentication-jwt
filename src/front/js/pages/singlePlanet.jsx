@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
  
-
 const SinglePlanet = () => {
     const { store, actions } = useContext(Context);
     const params = useParams();
@@ -22,7 +21,7 @@ const SinglePlanet = () => {
 
 
     return (<>
-     <img src=" " className="img" alt="..." />
+     <img src="https://www.lafinestradigital.com/wp-content/uploads/2011/09/starwars-planetes.jpg" className="img" alt="..." style={{ width: "100%" }}/>
         
         <h1>Este es el planeta {planet.name ? planet.name : "" }</h1>
         <h2>Mi uid {params.uid}</h2>

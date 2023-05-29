@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+
 const Corazon = () => {
   const corazonEmoji = "\u2764\uFE0F"; // el corazón rojo con estilo normal
   return <span>{corazonEmoji}</span>;
@@ -11,7 +12,7 @@ const CardPlanet = (props) => {
   return (
     <>
       <div className="card" style={{ width: "18rem" }}>
-        <img src="..." className="card-img-top" alt="..." />
+        <img src="https://www.nosolobits.com/imagenes/guia/coruscant_1843754588.jpg" className="card-img-top" alt="..." />
         <div className="card-body">
           <h5 className="card-title">{props.name}</h5>
           <p className="card-text">

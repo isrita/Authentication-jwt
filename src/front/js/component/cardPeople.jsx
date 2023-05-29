@@ -13,7 +13,7 @@ const CardPeople = (props) => {
   return (
     <>
       <div className="card" style={{ width: "18rem" }}>
-        <img src="..." className="card-img-top" alt="..." />
+        <img src="https://i.blogs.es/05d040/espinof-star-wars-jarjarbinks/840_560.jpg" className="card-img-top" alt="..." />
         <div className="card-body">
           <h5 className="card-title">{props.name}</h5>
           <p className="card-text">

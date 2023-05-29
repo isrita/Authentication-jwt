@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
-/* import "./styles/home.css" */ export const Navbar = () => {
+
+export const Navbar = () => {
   //<a href="./demo.html">
   const { store, actions } = useContext(Context);
-  const handleDelete = (item) => {
-    const newFavoritos = favoritos.filter((f) => f.name !== item.name);
-    setFavoritos(newFavoritos);
-  };
-
+  const [fav, setfav] = useState([]);
+  useEffect(() => {
+    setfav(store.favoritos);
+  }, [store.favoritos]);
   return (
     <nav className="navbar navbar-light black">
       <div className="container">
@@ -28,10 +28,10 @@ import { Link } from "react-router-dom";
             STAR WARS
           </span>
         </Link>
-        <div className="ml-auto"></div>
         <div>
           <div className="nav-item dropdown">
-            <div
+            <Link
+              to="/"
               className="nav-link dropdown-toggle"
               id="navbarDropdown"
               role="button"
@@ -40,25 +40,21 @@ import { Link } from "react-router-dom";
               style={{ color: "white", fontSize: "1.2em" }}
             >
               Favoritos
-            </div>
-            <ul className=" dropdown-menu ">
-              {store.favoritos && store.favoritos.length > 0 ? (
+            </Link>
+            <ul
+              className="dropdown-menu"
+              aria-labelledby="navbar Dropdown"
+            >
+              {fav && fav.length > 0 ? (
                 <>
-                  {store.favoritos.map((item, index) => {
-                    const handleDelete = () => {
-                      const newFavoritos = [...store.favoritos];
-                      newFavoritos.splice(index, 1);
-                      setStore({ ...store, favoritos: newFavoritos });
-                    };
+                  {fav.map((item, index) => {
                     return (
-						<ul key={index}>
-						<Link to={item.link} style={{ color: "black", fontSize: "1.2em", }}>
-						  {item.name}
-						</Link>
-						<button onClick={() => onDelete(item)}>X 
-						
-						</button>
-					  </ul>
+                      <ul key={index}>
+                      <Link to={item.link} style={{ color: "black", fontSize: "1.2em" }}>
+                        {item.name}
+                      </Link>
+                      <button onClick={() => actions.eliminarFavorito(index)}>X</button>
+                      </ul>
                     );
                   })}
                 </>
@@ -72,6 +68,7 @@ import { Link } from "react-router-dom";
     </nav>
   );
 };
+
 
 /*
 

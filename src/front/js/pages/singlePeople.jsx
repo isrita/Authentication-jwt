@@ -20,7 +20,7 @@ const SinglePeople = () => {
     }, [params.uid])
 
     return (<>
-     <img src=" " className="img" alt="..." />
+     <img src="https://cdn6.dibujos.net/images/listas/los-mejores-personajes-de-star-wars.jpg" className="img" alt="..." style={{ width: "100%" }}/>
         <h1>Soy {people.name ? people.name : ""}</h1>
         <h2>Mi uid {params.uid} y mi género es {people?.gender}</h2>
         <h2>Fecha de nacimiento: {people.birth_year}</h2>

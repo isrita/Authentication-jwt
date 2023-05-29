@@ -16,10 +16,16 @@ export function favoritosActions(getStore, getActions, setStore) {
                     }
                 }
             }
-
             arrTemp.push(objeto)
             setStore({ ...store, favoritos: arrTemp }) // [..favoritos, objeto]
             return true;
         },
+        eliminarFavorito: async (indice) => {
+            const store = getStore();
+            const arrTemp = store.favoritos.slice();
+            const newFavoritos = arrTemp.filter((item, index) => index !== indice);
+            setStore({ favoritos: newFavoritos });
+            return true;
+          },
     }
 }

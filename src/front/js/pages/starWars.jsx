@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import CardPeople from "../component/cardPeople.jsx";
 import CardPlanet from "../component/cardPlanet.jsx";
 import { todoActions } from "../store/todos";
+import "../../styles/home.css";
 //React parallax
 
 const StarWars = () => {
@@ -75,7 +76,7 @@ const StarWars = () => {
 
     return (<>
        
-
+       <div className = "body">
         <div className = "container">
         <div className="row flex-row flex-nowrap overflow-auto">
                 {listPeople && listPeople.length > 0 ?
@@ -101,7 +102,7 @@ const StarWars = () => {
                     </> : <></>}
             </div>
         </div>
-
+        </div>                     
 
     </>)
 }
